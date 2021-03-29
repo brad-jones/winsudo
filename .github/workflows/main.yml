@@ -1,0 +1,77 @@
+on:
+  pull_request_target:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+
+env:
+  CI: true
+
+jobs:
+  init:
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: brad-jones/actions/cancel-redundant@v1.1.0
+        with:
+          token: ${{ secrets.CANCEL_GITHUB_TOKEN }}
+
+  # TODO: create some tests
+  #test:
+  #  needs: init
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - if: "! contains(github.event_name, 'pull_request')"
+  #      uses: actions/checkout@v2
+  #    - if: "contains(github.event_name, 'pull_request')"
+  #      uses: actions/checkout@v2
+  #      with:
+  #        ref: refs/pull/${{ github.event.pull_request.number }}/merge
+  #    - name: Read .go-version
+  #      run: echo ::set-output name=GO_VERSION::$(cat .go-version | xargs)
+  #      id: gvm
+  #    - uses: actions/setup-go@v2
+  #      with:
+  #        go-version: ${{ steps.gvm.outputs.GO_VERSION }}
+  #    - name: Restore go cache
+  #      uses: actions/cache@v2.1.4
+  #      with:
+  #        path: ~/go/pkg/mod
+  #        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+  #        restore-keys: ${{ runner.os }}-go-
+  #    - run: go test -v ./...
+
+  release:
+    if: "! contains(github.event_name, 'pull_request')"
+    needs: init
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.CANCEL_GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Read .go-version
+        run: echo ::set-output name=GO_VERSION::$(cat .go-version | xargs)
+        id: gvm
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ steps.gvm.outputs.GO_VERSION }}
+      - name: Read .node-version
+        run: echo ::set-output name=NODE_VERSION::$(cat .node-version | xargs)
+        id: nvm
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+      - name: Restore go cache
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-go-
+      - name: Restore node cache
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npx semantic-release

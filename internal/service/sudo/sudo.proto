@@ -1,0 +1,22 @@
+syntax = "proto3";
+package sudo;
+option go_package = "github.com/brad-jones/winsudo/internal/service/sudo";
+
+service Sudo {
+  rpc StreamStdIn (Empty) returns (stream StdIo) {}
+  rpc StreamStdOut (stream StdIo) returns (Empty) {}
+  rpc StreamStdErr (stream StdIo) returns (Empty) {}
+  rpc Exit (ExitRequest) returns (Empty) {}
+}
+
+message Empty {
+}
+
+message StdIo {
+  bytes Content = 1;
+}
+
+message ExitRequest {
+  int32 Code = 1;
+  string ErrorMessage = 2;
+}

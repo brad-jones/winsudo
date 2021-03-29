@@ -1,0 +1,13 @@
+{
+	"version": "v${VERSION}",
+	"architecture": {
+		"64bit": {
+			"url": "https://github.com/brad-jones/winsudo/releases/download/v${VERSION}/winsudo_amd64.zip",
+			"bin": ["sudo.exe"],
+			"hash": "${HASH}"
+		}
+	},
+	"homepage": "https://github.com/brad-jones/winsudo",
+	"license": "MIT",
+	"description": "A sudo 'like' framework for dealing with Windows UAC."
+}
