@@ -92,7 +92,7 @@ export async function prepareRelease() {
 			`-X main.versionNo=${config.versionNo} -X main.commitUrl=${config.commitUrl} -X main.date=${config.date}`,
 			"-o",
 			`./dist/winsudo_amd64`,
-			".",
+			"./cmd/sudo",
 		],
 		{
 			env: {
