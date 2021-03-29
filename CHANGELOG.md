@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/brad-jones/winsudo/compare/v1.0.1...v1.0.2) (2021-03-29)
+
+
+### Bug Fixes
+
+* **build:** helps if we build the correct package ([cd81a05](https://github.com/brad-jones/winsudo/commit/cd81a0559a9cfa4eb734d691e778fdfdd3517a37))
+
 ## [1.0.1](https://github.com/brad-jones/winsudo/compare/v1.0.0...v1.0.1) (2021-03-29)
 
 
