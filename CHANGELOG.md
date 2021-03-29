@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/brad-jones/winsudo/compare/v1.0.2...v1.0.3) (2021-03-29)
+
+
+### Bug Fixes
+
+* **ci:** run release stage on linux again, cross compilation should work ([04cf27a](https://github.com/brad-jones/winsudo/commit/04cf27ac8d515001399326727953242996bf9a5a))
+
 ## [1.0.2](https://github.com/brad-jones/winsudo/compare/v1.0.1...v1.0.2) (2021-03-29)
 
 
