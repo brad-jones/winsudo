@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/brad-jones/winsudo/compare/v1.0.4...v1.0.5) (2021-03-29)
+
+
+### Bug Fixes
+
+* **deps:** bump google.golang.org/protobuf from 1.25.0 to 1.26.0 ([#2](https://github.com/brad-jones/winsudo/issues/2)) ([e7541cd](https://github.com/brad-jones/winsudo/commit/e7541cd3cbb6a79d75fcf15dc28a0dbad5210001))
+
 ## [1.0.4](https://github.com/brad-jones/winsudo/compare/v1.0.3...v1.0.4) (2021-03-29)
 
 
