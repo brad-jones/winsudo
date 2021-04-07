@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/brad-jones/winsudo/compare/v1.0.5...v1.0.6) (2021-04-07)
+
+
+### Bug Fixes
+
+* add some additional EOF checks to our readers ([b3d5540](https://github.com/brad-jones/winsudo/commit/b3d55405ec4b74e329e4731f2c9ae526e22fb834))
+
 ## [1.0.5](https://github.com/brad-jones/winsudo/compare/v1.0.4...v1.0.5) (2021-03-29)
 
 
