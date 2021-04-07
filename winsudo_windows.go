@@ -259,7 +259,7 @@ func ElevatedExec(cmd string, decorators ...func(*exec.Cmd) error) (exitCode int
 				for {
 					data, err := inStream.Recv()
 					if err != nil {
-						if !strings.Contains(err.Error(), "transport is closing") {
+						if err != io.EOF && !strings.Contains(err.Error(), "transport is closing") {
 							t.Reject(err, "failed receiving data from STDIN stream")
 						}
 						return

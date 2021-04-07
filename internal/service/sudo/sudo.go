@@ -37,6 +37,9 @@ func (s *ImplementedSudoServer) StreamStdOut(stream Sudo_StreamStdOutServer) (er
 	defer goerr.Handle(func(e error) { err = e })
 	for {
 		data, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
 		goerr.Check(err, "failed reading from STDOUT of child process")
 		_, err = os.Stdout.Write(data.Content)
 		goerr.Check(err, "failed writing to STDOUT of parent process")
@@ -47,6 +50,9 @@ func (s *ImplementedSudoServer) StreamStdErr(stream Sudo_StreamStdErrServer) (er
 	defer goerr.Handle(func(e error) { err = e })
 	for {
 		data, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
 		goerr.Check(err, "failed reading from STDERR of child process")
 		_, err = os.Stderr.Write(data.Content)
 		goerr.Check(err, "failed writing to STDERR of parent process")
