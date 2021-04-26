@@ -14,7 +14,7 @@
 		"execa": "^5.0.0",
 		"hasha": "^5.2.2",
 		"husky": "^4.3.8",
-		"isomorphic-git": "^1.8.1",
+		"isomorphic-git": "^1.8.2",
 		"lint-staged": "^10.5.4",
 		"prettier": "^2.2.1",
 		"semantic-release": "^17.4.2",
