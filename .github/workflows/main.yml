@@ -16,30 +16,36 @@ jobs:
         with:
           token: ${{ secrets.CANCEL_GITHUB_TOKEN }}
 
-  # TODO: create some tests
-  #test:
-  #  needs: init
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - if: "! contains(github.event_name, 'pull_request')"
-  #      uses: actions/checkout@v2
-  #    - if: "contains(github.event_name, 'pull_request')"
-  #      uses: actions/checkout@v2
-  #      with:
-  #        ref: refs/pull/${{ github.event.pull_request.number }}/merge
-  #    - name: Read .go-version
-  #      run: echo ::set-output name=GO_VERSION::$(cat .go-version | xargs)
-  #      id: gvm
-  #    - uses: actions/setup-go@v2
-  #      with:
-  #        go-version: ${{ steps.gvm.outputs.GO_VERSION }}
-  #    - name: Restore go cache
-  #      uses: actions/cache@v2.1.5
-  #      with:
-  #        path: ~/go/pkg/mod
-  #        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-  #        restore-keys: ${{ runner.os }}-go-
-  #    - run: go test -v ./...
+  # TODO: get some tests running here
+  # test:
+  #   needs: init
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get Git SHA
+  #       id: gitRef
+  #       run: |
+  #         if [ "${{ github.event_name }}" == 'pull_request_target' ]; then
+  #           echo "::set-output name=sha::${{ github.event.pull_request.head.sha }}"
+  #         else
+  #           echo "::set-output name=sha::${{ github.sha }}"
+  #         fi
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2.3.4
+  #       with:
+  #         ref: ${{ steps.gitRef.outputs.sha }}
+  #     - name: Read .go-version
+  #       run: echo ::set-output name=GO_VERSION::$(cat .go-version | xargs)
+  #       id: gvm
+  #     - uses: actions/setup-go@v2.1.3
+  #       with:
+  #         go-version: ${{ steps.gvm.outputs.GO_VERSION }}
+  #     - name: Restore go cache
+  #       uses: actions/cache@v2.1.5
+  #       with:
+  #         path: ~/go/pkg/mod
+  #         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+  #         restore-keys: ${{ runner.os }}-go-
+  #     - run: go test -v ./...
 
   release:
     if: "! contains(github.event_name, 'pull_request')"

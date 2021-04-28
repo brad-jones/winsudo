@@ -1,16 +1,29 @@
 {
 	"cSpell.words": [
+		"ENTRYPOINT",
+		"GOARCH",
 		"GRPC",
 		"Idxs",
 		"Pwsh",
 		"RPCs",
+		"commitlint",
+		"dependabot",
+		"execa",
 		"extendee",
 		"goerr",
 		"goexec",
+		"gofmt",
+		"gomod",
+		"hasha",
+		"ldflags",
 		"phayes",
 		"protobuf",
 		"protoc",
 		"protoimpl",
-		"runas"
+		"rpms",
+		"runas",
+		"tslog",
+		"winsudo",
+		"xargs"
 	]
 }
