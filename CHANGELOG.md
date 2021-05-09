@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/brad-jones/winsudo/compare/v1.0.7...v1.0.8) (2021-05-09)
+
+
+### Bug Fixes
+
+* **deps:** bump github.com/brad-jones/goexec/v2 from 2.1.6 to 2.1.7 ([#12](https://github.com/brad-jones/winsudo/issues/12)) ([3b8746e](https://github.com/brad-jones/winsudo/commit/3b8746eb7295dfa78eea6026fe9de6affaa0950a))
+
 ## [1.0.7](https://github.com/brad-jones/winsudo/compare/v1.0.6...v1.0.7) (2021-04-12)
 
 
