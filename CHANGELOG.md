@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/brad-jones/winsudo/compare/v1.0.8...v1.0.9) (2021-05-12)
+
+
+### Bug Fixes
+
+* **deps:** bump google.golang.org/grpc from 1.37.0 to 1.37.1 ([#18](https://github.com/brad-jones/winsudo/issues/18)) ([33d5c00](https://github.com/brad-jones/winsudo/commit/33d5c00c076e1b58069ecee2ff56ef3780dd6663))
+
 ## [1.0.8](https://github.com/brad-jones/winsudo/compare/v1.0.7...v1.0.8) (2021-05-09)
 
 
