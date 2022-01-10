@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"dependencies": {
-		"@commitlint/cli": "^13.1.0",
+		"@commitlint/cli": "^16.0.2",
 		"@commitlint/config-conventional": "^13.1.0",
 		"@semantic-release/changelog": "^5.0.1",
 		"@semantic-release/commit-analyzer": "^8.0.1",
