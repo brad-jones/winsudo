@@ -58,7 +58,7 @@ jobs:
       - name: Read .go-version
         run: echo ::set-output name=GO_VERSION::$(cat .go-version | xargs)
         id: gvm
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
           go-version: ${{ steps.gvm.outputs.GO_VERSION }}
       - name: Read .node-version
