@@ -40,7 +40,7 @@ jobs:
   #       with:
   #         go-version: ${{ steps.gvm.outputs.GO_VERSION }}
   #     - name: Restore go cache
-  #       uses: actions/cache@v2.1.6
+  #       uses: actions/cache@v3.0.3
   #       with:
   #         path: ~/go/pkg/mod
   #         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
@@ -68,13 +68,13 @@ jobs:
         with:
           node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
       - name: Restore go cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.3
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: ${{ runner.os }}-go-
       - name: Restore node cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
